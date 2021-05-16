@@ -1,0 +1,12 @@
+<div class="login-container" *ngIf="!askSecondPassword" @FadeAnimation>
+    <input type="text" maxlength="255" [(ngModel)]="mail" placeholder="E-mail" (keyup.enter)="login()" />
+    <input type="password" maxlength="255" [(ngModel)]="password" placeholder="Password"  (keyup.enter)="login()" />
+    <button (click)="login()">Log in</button>
+    <button (click)="preSignIn()">Sign in</button>
+</div>
+
+<div class="login-container" *ngIf="askSecondPassword" @FadeAnimation>
+    <p>Retype your password :</p>
+    <input type="password" maxlength="255" [(ngModel)]="password2" placeholder="Password"  (keyup.enter)="signIn()" />
+    <button (click)="signIn()">Sign in</button>
+</div>

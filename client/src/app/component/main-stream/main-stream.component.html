@@ -1,0 +1,24 @@
+<div class="main-stream-container" (scroll)="onContainerScroll()" #container>
+
+    <div class="newArticle">
+        <div class="article-header">
+            <span>Post a new Article</span>
+        </div>
+        <textarea [(ngModel)]="newArticleText" maxlength="4096" rows="5" (keydown)="onKeydownEvent($event)"></textarea>
+        <button (click)="postNewArticle()">Post</button>
+    </div>
+
+    <div class="article" *ngFor="let article of articleService.articles" @FadeAnimation>
+        <div class="article-header">
+            <span class="date">{{ article.date | date: 'medium' }}</span>
+            <span> by </span>
+            <span class="author">{{ article.mail }}</span>
+        </div>
+        <div class="article-body">
+            <p [innerHTML]="article.text"></p>
+        </div>
+    </div>
+    <div class="noMoreOldArticles" *ngIf="articleService.noMoreOldArticles" @FadeAnimation>
+        <p>Everything starts here !</p>
+    </div>
+</div>

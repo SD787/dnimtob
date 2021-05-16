@@ -1,0 +1,18 @@
+@import 'src/variables';
+
+.navigation-container {
+    height: $navigationHeight;
+    width: 100%;
+    border-bottom: 2px solid #fff;
+    position: relative;
+
+    h1 {
+        text-align: center;
+    }
+
+    .logout {
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+}

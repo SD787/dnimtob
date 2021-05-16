@@ -1,0 +1,6 @@
+<div class="notification-container">
+    <div *ngFor="let message of notificationService.messages;let indexOfElement=index;" (click)="notificationService.removeMessage(indexOfElement)">
+        <p>{{ message }}</p>
+        <div class="cross">X</div>
+    </div>
+</div>
