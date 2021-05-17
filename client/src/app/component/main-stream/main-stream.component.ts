@@ -20,9 +20,11 @@ export class MainStreamComponent implements OnInit {
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
-    this.articleService.loadLastArticles(() => {
-      this.checkIfNecessaryToLoadMoreArticles();
-    });
+      this.articleService.loadLastArticles(() => {
+        setTimeout(() => {
+          this.checkIfNecessaryToLoadMoreArticles();
+        }, 500);
+      });
   }
 
   onContainerScroll(): void {
@@ -53,7 +55,9 @@ export class MainStreamComponent implements OnInit {
   private checkIfNecessaryToLoadMoreArticles(): void {
     if (!this.articleService.noMoreOldArticles && this.getScrollBetween0And1() == 1) {
       this.articleService.loadMoreArticles(() => {
-        this.checkIfNecessaryToLoadMoreArticles();
+        setTimeout(() => {
+          this.checkIfNecessaryToLoadMoreArticles();
+        }, 500);
       });
     }
   }
